@@ -45,7 +45,7 @@ func main() {
 		panic(err)
 	}
 
-	cls := knn.NewKnnClassifier("euclidean", "linear", 5)
+	cls := knn.NewKnnClassifier("cosine", "linear", 8)
 	trainData, testData := base.InstancesTrainTestSplit(rawData, 0.70)
 
 	cls.Fit(trainData)
