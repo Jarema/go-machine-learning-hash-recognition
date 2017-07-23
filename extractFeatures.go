@@ -12,7 +12,7 @@ const (
 	specials   = "`~@#$%^&*()-_=+[{]}\\|\";:,<.>/?\\'"
 )
 
-func extractFeatures(example string) []int {
+func extractFeatures(example string) extractedRow {
 	var x1, x2, x3, x4, x5, x6, x7, x8 int
 	for _, s := range example {
 		if unicode.IsUpper(s) {
@@ -41,6 +41,18 @@ func extractFeatures(example string) []int {
 		}
 
 	}
-	return []int{x1, x2, x3, x4, x5, x6, x7, x8}
+	return extractedRow{x1, x2, x3, x4, x5, x6, x7, x8, ""}
 
+}
+
+type extractedRow struct {
+	UppercaseCount  int
+	LowercaseCount  int
+	SpaceCount      int
+	DigitCount      int
+	VovelsCount     int
+	ConsonantsCount int
+	DiacriticsCount int
+	SpecialsCount   int
+	Category        string
 }
