@@ -18,6 +18,8 @@ type inputRow struct {
 
 func main() {
 
+	fmt.Println(specials)
+
 	inputFile, err := ioutil.ReadFile("input.csv")
 	if err != nil {
 		panic(err)
